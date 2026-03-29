@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const API_BASE_URL = '/api'
+// ✅ USE ENV VARIABLE (IMPORTANT)
+const API_BASE_URL = import.meta.env.VITE_API_URL
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -14,19 +15,35 @@ export const resumeAPI = {
   upload: async (file) => {
     const formData = new FormData()
     formData.append('resume', file)
-    const response = await axios.post(`${API_BASE_URL}/resume/upload`, formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
-    })
-    return response.data
+
+    try {
+      const response = await axios.post(
+        `${API_BASE_URL}/resume/upload`,
+        formData,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        }
+      )
+
+      return response.data
+    } catch (err) {
+      console.error('UPLOAD ERROR:', err.response?.data || err.message)
+      throw new Error(
+        err.response?.data?.message || 'Backend not reachable'
+      )
+    }
   },
+
   get: async () => {
     const response = await api.get('/resume/me')
     return response.data
   },
+
   save: async (resumeData) => {
     const response = await api.post('/resume/save', resumeData)
     return response.data
   },
+
   build: async (resumeData) => {
     const response = await api.post('/resume/build', resumeData)
     return response.data
