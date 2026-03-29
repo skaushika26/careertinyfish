@@ -1,121 +1,46 @@
 import axios from 'axios'
 
-// ✅ FIXED BASE URL (IMPORTANT)
-const API_BASE_URL = import.meta.env.VITE_API_URL + '/api'
+// Fallback to hardcoded URL if env var is missing
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://careertinyfish.onrender.com'
 
-// Create axios instance
+console.log('API BASE URL:', BASE_URL) // Remove after debugging
+
 const api = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  }
+  baseURL: `${BASE_URL}/api`,
+  headers: { 'Content-Type': 'application/json' }
 })
 
-// ========== RESUME API ==========
+// RESUME
 export const resumeAPI = {
   upload: async (file) => {
     const formData = new FormData()
     formData.append('resume', file)
-
-    try {
-      const response = await axios.post(
-        `${API_BASE_URL}/resume/upload`, // ✅ FIXED
-        formData,
-        {
-          headers: { 'Content-Type': 'multipart/form-data' }
-        }
-      )
-      return response.data
-    } catch (err) {
-      console.error('UPLOAD ERROR:', err.response?.data || err.message)
-      throw new Error(
-        err.response?.data?.message || 'Backend not reachable'
-      )
-    }
+    const res = await axios.post(`${BASE_URL}/api/resume/upload`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    })
+    return res.data
   },
-
-  get: async () => {
-    const response = await api.get('/resume/me') // ✅ AUTO FIXED
-    return response.data
-  },
-
-  save: async (resumeData) => {
-    const response = await api.post('/resume/save', resumeData)
-    return response.data
-  }
+  get: async () => (await api.get('/resume/me')).data,
+  save: async (data) => (await api.post('/resume/save', data)).data
 }
 
-// ========== JOBS API ==========
+// JOBS
 export const jobsAPI = {
-  getAll: async () => {
-    try {
-      const response = await api.get('/jobs') // ✅ FIXED
-      return response.data
-    } catch (error) {
-      console.error('Error fetching jobs:', error)
-      return []
-    }
-  },
-
-  getById: async (id) => {
-    try {
-      const response = await api.get(`/jobs/${id}`)
-      return response.data
-    } catch (error) {
-      throw new Error('Job not found')
-    }
-  }
+  getAll: async () => (await api.get('/jobs')).data,
+  getById: async (id) => (await api.get(`/jobs/${id}`)).data
 }
 
-// ========== APPLICATIONS API ==========
+// APPLICATIONS
 export const applicationsAPI = {
-  getAll: async () => {
-    try {
-      const response = await api.get('/applications') // ✅ FIXED
-      return response.data
-    } catch (error) {
-      return []
-    }
-  },
-
-  create: async (application) => {
-    try {
-      const response = await api.post('/applications', application)
-      return response.data
-    } catch (error) {
-      return { success: false }
-    }
-  }
+  getAll: async () => (await api.get('/applications')).data,
+  create: async (data) => (await api.post('/applications', data)).data
 }
 
-// ========== AI API ==========
+// AI
 export const aiAPI = {
-  customize: async (resume, job) => {
-    try {
-      const response = await api.post('/ai/customize', { resume, job }) // ✅ FIXED
-      return response.data
-    } catch (error) {
-      return { success: false }
-    }
-  },
-
-  autoApply: async (resume, jobs) => {
-    try {
-      const response = await api.post('/ai/auto-apply', { resume, jobs }) // ✅ FIXED
-      return response.data
-    } catch (error) {
-      return { success: false }
-    }
-  },
-
-  portfolio: async (resume) => {
-    try {
-      const response = await api.post('/ai/portfolio', { resume }) // ✅ FIXED
-      return response.data
-    } catch (error) {
-      return { success: false }
-    }
-  }
+  customize: async (resume, job) => (await api.post('/ai/customize', { resume, job })).data,
+  autoApply: async (resume, jobs) => (await api.post('/ai/auto-apply', { resume, jobs })).data,
+  portfolio: async (resume) => (await api.post('/ai/portfolio', { resume })).data
 }
 
 export default api
