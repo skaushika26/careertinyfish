@@ -10,7 +10,13 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:3000', 'https://careerforge-henna.vercel.app'],
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'http://127.0.0.1:3000',
+    'https://careerforge-henna.vercel.app',
+    'https://careertinyfish-dic.vercel.app' // ✅ ADD THIS
+  ],
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
