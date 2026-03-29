@@ -1,0 +1,275 @@
+.agent-runner {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: #64748b;
+}
+
+.resume-badge {
+  background: #dcfce7;
+  color: #166534;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Agent Card */
+.agent-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.agent-config h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.config-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.config-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #334155;
+}
+
+.config-item .material-icons {
+  font-size: 1.125rem;
+  color: #8b5cf6;
+}
+
+.btn-start-agent {
+  width: 100%;
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.btn-start-agent:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.btn-start-agent:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.warning-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #fef9c3;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #854d0e;
+}
+
+.warning-message a {
+  color: #854d0e;
+  text-decoration: underline;
+}
+
+/* Logs Terminal */
+.logs-terminal {
+  background: #0f172a;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.logs-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #334155;
+  margin-bottom: 1rem;
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.log-count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.logs-empty {
+  text-align: center;
+  padding: 2rem;
+  color: #475569;
+}
+
+.logs-empty .material-icons {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.logs-list {
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+.log-line {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.log-line.success {
+  color: #4ade80;
+}
+
+.log-line.error {
+  color: #f87171;
+}
+
+.log-time {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+/* Results Card */
+.results-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.results-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #065f46;
+}
+
+.applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.application-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+}
+
+.application-item .material-icons {
+  color: #10b981;
+}
+
+.app-title {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.app-company {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.app-status {
+  margin-left: auto;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 1rem;
+}
+
+.btn-view-applications {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #10b981;
+  color: #065f46;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-view-applications:hover {
+  background: #10b981;
+  color: white;
+}
+
+.loading-spinner-small {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

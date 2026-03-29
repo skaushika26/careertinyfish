@@ -1,0 +1,15 @@
+﻿John Doe
+Senior Software Engineer
+Email: john.doe@example.com
+Phone: +1 555-123-4567
+Location: San Francisco, CA
+Skills: React, Node.js, Python, MongoDB, AWS
+Summary: Experienced software engineer with 8+ years in full-stack development. Expert in React, Node.js, and cloud technologies.
+
+Experience:
+Senior Developer at TechCorp (2021-Present)
+- Led frontend team of 5 developers
+- Built scalable React applications
+
+Education:
+B.Sc Computer Science, Stanford University (2018)

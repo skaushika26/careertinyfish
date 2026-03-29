@@ -1,0 +1,128 @@
+.applications {
+  max-width: 1000px;
+}
+
+.pipeline {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.pipeline-stage {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+  transition: all var(--transition);
+}
+
+.pipeline-stage:hover {
+  border-color: var(--border-light);
+  color: var(--text-primary);
+}
+
+.pipeline-stage.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.stage-accent.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent-light); }
+.stage-blue.active { background: var(--blue-dim); border-color: var(--blue); color: var(--blue); }
+.stage-green.active { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+.stage-red.active { background: var(--red-dim); border-color: var(--red); color: var(--red); }
+.stage-yellow.active { background: var(--yellow-dim); border-color: var(--yellow); color: var(--yellow); }
+.stage-gray.active { background: var(--bg-hover); border-color: var(--border-light); color: var(--text-primary); }
+
+.pipeline-stage .material-icons { font-size: 16px; }
+
+.stage-count {
+  background: var(--bg-hover);
+  padding: 1px 7px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+
+.app-table {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.app-table-header {
+  display: grid;
+  grid-template-columns: 1fr 160px 120px 200px;
+  padding: 12px 20px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.app-table-row {
+  display: grid;
+  grid-template-columns: 1fr 160px 120px 200px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  transition: background var(--transition);
+}
+
+.app-table-row:last-child { border-bottom: none; }
+.app-table-row:hover { background: var(--bg-hover); }
+
+.app-job-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.app-job-company {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.status-select {
+  appearance: none;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-main);
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-transform: capitalize;
+}
+
+.status-gray { background: var(--bg-hover); color: var(--text-secondary); border-color: var(--border); }
+.status-blue { background: var(--blue-dim); color: var(--blue); border-color: rgba(59,130,246,0.3); }
+.status-accent { background: var(--accent-dim); color: var(--accent-light); border-color: var(--accent-glow); }
+.status-green { background: var(--green-dim); color: var(--green); border-color: rgba(34,197,94,0.3); }
+.status-red { background: var(--red-dim); color: var(--red); border-color: rgba(239,68,68,0.3); }
+.status-yellow { background: var(--yellow-dim); color: var(--yellow); border-color: rgba(234,179,8,0.3); }
+
+.app-date {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.app-row-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
